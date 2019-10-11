@@ -1,0 +1,16 @@
+take\service\serviceImpl\UserServiceImpl.class
+take\ExternalService\CodeMsg.class
+take\ExternalService\FirstService.class
+take\Util\FastJsonUtils$1.class
+take\Application.class
+take\controller\test\AjaxTest.class
+take\shirologin\CustomRealm.class
+take\service\UserService.class
+take\Util\FastJsonUtils.class
+take\filter\LoginFilter.class
+take\mapper\TextMapper.class
+take\controller\test\textAjax.class
+take\Util\RedisUtil.class
+take\controller\Login.class
+take\mapper\UserMapper.class
+take\shirologin\ShiroConfig.class
