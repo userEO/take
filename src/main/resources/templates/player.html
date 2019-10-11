@@ -6,6 +6,10 @@
 <!--封装好的视频布局样式-->
 <link type="text/css" rel="stylesheet" href="../logincss/playerstyle.css">
 <link type="text/css" rel="stylesheet" href="../logincss/jsmodern.min.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/menu.min.css">
 <script  type="text/javascript"  src="../loginjs/jquery.min.js"></script>
 <!--mp4视频插件-->
 <script   type="text/javascript" src="../loginjs/jsmodern.min.js"></script>
@@ -58,7 +62,7 @@ $(function () {
 })
 </script>
 </head>
-<body class="mkeBody">
+<body  id="wrapper" class="mkeBody">
 <div class="mkeContentBox">
 <!--效果html开始-->
 <div id="video">
@@ -71,5 +75,10 @@ $(function () {
 </div>
 <!--效果html结束-->
 </div>
+<script src="../js/materialMenu.js"></script>
+<script>
+  var menu = new Menu;
+</script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

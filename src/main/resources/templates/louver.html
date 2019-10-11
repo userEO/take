@@ -6,11 +6,63 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSS3百叶照片</title>
 	<link rel="stylesheet" type="text/css" href="../logincss/photo2.css">
+	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/menu.min.css">
 	<!--[if IE]>
 		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 	<![endif]-->
 </head>
-<body class="mkeBody">
+<body id="wrapper" class="mkeBody">
+<button id="mm-menu-toggle" class="mm-menu-toggle">Toggle Menu</button>
+<nav id="mm-menu" class="mm-menu">
+	<div class="mm-menu__header">
+		<h2 class="mm-menu__title">WAITINGFORFATE</h2>
+	</div>
+	<ul class="mm-menu__items">
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="index">
+				<span class="mm-menu__link-text"><i class="fa fa-home"></i> Home</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="index">
+				<span class="mm-menu__link-text"><i class="fa fa-user"></i> Blog</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="contact">
+				<span class="mm-menu__link-text"><i class="fa fa-heart"></i> Contact</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="player">
+				<span class="mm-menu__link-text"><i class="fa fa-heart"></i> 播放器</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="photo">
+				<span class="mm-menu__link-text"><i class="fa fa-heart"></i> 照片</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="louver">
+				<span class="mm-menu__link-text"><i class="fa fa-heart"></i> 百叶照片</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="music">
+				<span class="mm-menu__link-text"><i class="fa fa-heart"></i> Music</span>
+			</a>
+		</li>
+		<li class="mm-menu__item">
+			<a class="mm-menu__link" href="single">
+				<span class="mm-menu__link-text"><i class="fa fa-inbox"></i> 版本更新公告</span>
+			</a>
+		</li>
+	</ul>
+</nav><!-- /nav -->
 <div class="mkeHeadBox">百叶照片</div>
 <div class="mkeContentBox">
 <!--效果html开始-->
@@ -99,8 +151,16 @@
 			</div>
 		</div><!--  end of container -->
 	<script src="../loginjs/prefixfree.min.js"></script>
+		<!-- Menu Js -->
+
     </div>
 <!--效果html结束-->
 </div>
+<script src="../js/materialMenu.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+	var menu = new Menu;
+</script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
