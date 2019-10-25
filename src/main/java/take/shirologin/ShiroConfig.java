@@ -37,7 +37,7 @@ import java.util.Map;
  * @date 2019/9/9 9:23
  */
 //注释这个就可以认登录拦截失效
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     @Bean(name = "shiroFilterFactoryBean")

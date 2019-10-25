@@ -14,7 +14,9 @@ import org.apache.shiro.web.servlet.ShiroHttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
+import take.mapper.LoginRecording;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -27,8 +29,11 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 public class AjaxTest {
+
     @Autowired
     StringRedisTemplate stringRedisTemplate;
+    @Resource
+    LoginRecording loginRecording;
 //    @Autowired
 //    private UserService userService;
 
@@ -70,6 +75,9 @@ public class AjaxTest {
 //            //主体提交登录请求到SecurityManager  登录即身份验证
             currentUser.login(token);
             System.out.println("shiro登录成功");
+            //插入登录记录
+            loginRecording.recoding(map);
+            //给前台一个成功的标志
             map1.put("flag","success");
 
             //不采取从前台获取值，这样刷新页面或者进入其他页面会导致重新从1开始，改为从redis获取
