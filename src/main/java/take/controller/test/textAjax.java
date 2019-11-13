@@ -18,8 +18,8 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 public class textAjax {
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
+//    @Autowired
+//    StringRedisTemplate stringRedisTemplate;
     @Resource
     TextMapper textMapper;
     @RequestMapping(value = "/Ajax/EO/text",method = RequestMethod.POST)
@@ -27,11 +27,18 @@ public class textAjax {
 
 
 //        Map<String,Object> map = JSONObject.parseObject(jsonObject.toString());
-        int num = Integer.valueOf(stringRedisTemplate.opsForValue().get("textNum"))+1;
-        stringRedisTemplate.opsForValue().set("textNum",String.valueOf(num),60, TimeUnit.SECONDS);
+       // int num = Integer.valueOf(stringRedisTemplate.opsForValue().get("textNum"))+1;
+        //stringRedisTemplate.opsForValue().set("textNum",String.valueOf(num),60, TimeUnit.SECONDS);
 //                Integer.valueOf(map.get("num").toString());
-        Map<String,Object> map1=textMapper.findOne(num);
-        map1.put("textnum",num);
+        Map<String,Object> map1=textMapper.findOne();
+        int id = Integer.parseInt(map1.get("id").toString());
+        if(id==520){
+            id=1;
+        }
+        textMapper.updateNoteid(id);
+        textMapper.updateNextNoteid(id+1);
+        //map1.put("textnum",num);
+
         return map1;
     }
 }

@@ -396,16 +396,23 @@
     <script type="text/javascript">
 
 		//自动更新第一张图片的文字
-		// var textnum=0;
+		 var textnum=0;
 	var E520 = setInterval(function () {
 		// textnum++;
 		// if(textnum==521){
 		// 	clearInterval(E520);
 		// }else{
+
+		if(textnum){
+
+		}else{
+
+		}
 			AjaxPost("Ajax/EO/text","", function () {
 				//ajax加载中
 			},function (data) {
 				if(data!=null){
+					textnum++;
 					$("#titleo").html("").append(data.title);
 					$("#texto").html("").append(data.textE);
 					console.log(data.textnum);

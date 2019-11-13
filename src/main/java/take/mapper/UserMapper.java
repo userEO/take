@@ -57,4 +57,12 @@ public interface UserMapper {
 //    @Delete("delete from user where id=#{id}")
 //    void delete(int id);
 
+    /**
+     * 注册
+     * @param map
+     * @return
+     */
+    @Insert("insert into user(username,password) values(#{login},#{pwd})")
+     void  registered(Map<String,Object> map);
+
 }

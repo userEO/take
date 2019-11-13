@@ -30,8 +30,9 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class AjaxTest {
 
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
+    //网站访问基站流量小 不适用redis
+//    @Autowired
+//    StringRedisTemplate stringRedisTemplate;
     @Resource
     LoginRecording loginRecording;
 //    @Autowired
@@ -44,6 +45,7 @@ public class AjaxTest {
         map.put("resultCode",resultCode);
         return map;
     }
+
 
     //接收登录姓名验证
     @RequestMapping(value = "/Ajax/EO/Login",method = RequestMethod.POST)
@@ -81,7 +83,7 @@ public class AjaxTest {
             map1.put("flag","success");
 
             //不采取从前台获取值，这样刷新页面或者进入其他页面会导致重新从1开始，改为从redis获取
-            stringRedisTemplate.opsForValue().set("textNum","0",60, TimeUnit.SECONDS);
+          //  stringRedisTemplate.opsForValue().set("textNum","0",60, TimeUnit.SECONDS);
         }catch (IncorrectCredentialsException ice){
 //            map1.put("msg","密码不正确");
             System.out.println("shiro密码不正确");

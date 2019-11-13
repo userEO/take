@@ -3,7 +3,9 @@ package take.ExternalService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import take.Util.FastJsonUtils;
+import take.mapper.UserMapper;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +18,8 @@ import java.util.Map;
  */
 @RestController
 public class FirstService {
+    @Resource
+    UserMapper userMapper;
 
     @RequestMapping(value = "/EOS/first",method = RequestMethod.POST)
     public Object first(@RequestBody JSONObject jsonObject){
@@ -28,6 +32,18 @@ public class FirstService {
         Map<String,Object> map2 = new HashMap<>();
         map2.put("欢迎您","你好");
         return JSONObject.toJSON(map2);
+    }
+
+    //注册接口
+    @RequestMapping(value = "/EOS/registered",method = RequestMethod.POST)
+    public Object registered(@RequestBody JSONObject jsonObject){
+        Map<String,Object> map = JSONObject.parseObject(jsonObject.toString());
+        String login = map.get("login").toString();
+        String pwd = map.get("pwd").toString();
+        userMapper.registered(map);
+//       map2.put("欢迎您","你好");
+        map.put("恭喜注册成功",login);
+        return JSONObject.toJSON(map);
     }
 
     //这个仅为浏览器设置的访问连接 访问的是get请求,所以请求体中不能带有RequestBody

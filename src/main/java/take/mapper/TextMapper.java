@@ -1,6 +1,7 @@
 package take.mapper;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.Map;
 
@@ -12,6 +13,15 @@ import java.util.Map;
  */
 public interface TextMapper {
 
-    @Select("select title,textE from seeyou where id = #{num}")
-    Map<String,Object> findOne(int num);
+    //查询数据库为一的文字
+    @Select("select id,title,textE from seeyou where noteid = 1")
+    Map<String,Object> findOne();
+
+    //更新当前记录为0
+    @Update("update seeyou set  noteid = 0 where id=#{id}")
+    void updateNoteid(int id);
+
+    //更新下一个记录为1
+    @Update("update seeyou set  noteid = 1 where id=#{id}")
+    void updateNextNoteid(int id);
 }
