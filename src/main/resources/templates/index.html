@@ -13,8 +13,39 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/menu.min.css">
-	
-	
+	<link rel="stylesheet" href="../logincss/easyhelper.min.css">
+
+	<style>
+		.buttE1 {
+			margin: 13px auto 0px 134px;
+			color: blueviolet;
+		}
+		.buttE1 button{
+			width: 160px;
+			margin: 0 10px;
+		}
+		/*.buttE2 {*/
+		/*	margin: 13px auto 0px 520px;*/
+		/*	color: lightcyan;*/
+		/*}*/
+		/*.buttE2 button{*/
+		/*	width: 120px;*/
+		/*	margin: 0 10px;*/
+		/*}*/
+		/*.buttE3 {*/
+		/*	margin: 13px auto 0px 1314px;*/
+		/*	color: darkred;*/
+		/*}*/
+		/*.buttE3 button{*/
+		/*	width: 120px;*/
+		/*	margin: 0 10px;*/
+		/*}*/
+		.helper-button-info {
+			background: #131415;
+			border-color: #4a5f76;
+		}
+
+	</style>
     <!-- HTML5 Shim and Respond.loginjs IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.loginjs doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,6 +60,15 @@
 
 	<!-- /////////////////////////////////////////Navigation -->
 	<button id="mm-menu-toggle" class="mm-menu-toggle">Toggle Menu</button>
+	<div class="buttE1">
+		<button class="helper-button-info" id="dialog-1">这是个按钮，麻烦点一下</button>
+	</div>
+<!--	<div class="buttE2">-->
+<!--		<button class="helper-button-info" id="dialog-2">暗黑模式对话框</button>-->
+<!--	</div>-->
+<!--	<div class="buttE3">-->
+<!--		<button class="helper-button-info" id="dialog-3">暗黑模式对话框</button>-->
+<!--	</div>-->
 	<nav id="mm-menu" class="mm-menu">
 		<div class="mm-menu__header">
 			<h2 class="mm-menu__title">WAITINGFORFATE</h2>
@@ -51,7 +91,7 @@
 			</li>
 			<li class="mm-menu__item">
 				<a class="mm-menu__link" href="player">
-					<span class="mm-menu__link-text"><i class="fa fa-heart"></i> 播放器</span>
+					<span class="mm-menu__link-text"><i class="fa fa-heart"></i> 视频</span>
 				</a>
 			</li>
 			<li class="mm-menu__item">
@@ -375,9 +415,10 @@
 					</div>
 	  </div>
 	  </div>
+
 	  </div>
-		<div><img src="../loginimg/zg.png">
-			<a href="http://beian.miit.gov.cn/">皖ICP备19017743号</a></div>
+<!--		<div><img src="../loginimg/zg.png">-->
+<!--			<a href="http://beian.miit.gov.cn/">皖ICP备19017743号</a></div>-->
 	  </footer>
 	  <!-- Footer -->
 
@@ -387,6 +428,11 @@
 	<!-- Menu Js -->
 	<script src="../js/materialMenu.js"></script>
 	<script type="text/javascript" src="../loginjs/Treatment.js"></script>
+	<!-- 弹窗js-->
+	<script src="../loginjs/es6-shim.min.js"></script>
+	<script src="../loginjs/jquery-3.3.1.min.js"></script>
+	<script src="../loginjs/jquery.transit.min.js"></script>
+	<script src="../loginjs/easyhelper.min.js"></script>
 	<script>
 		var menu = new Menu;
 	</script>
@@ -394,6 +440,16 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
     <script type="text/javascript">
+		//button弹窗
+		$( "#dialog-1" ).on("click", function () {
+			Helper.ui.dialog({
+				title: "生日快乐",
+				content: "1.杨秀生日快乐哦" +
+						" 2.嗯一下键盘的F12，这里是网站的底层源码彩蛋啦" +
+						" 3.关闭弹窗，看一下左边的视频，过生日，怎么能没有生日祝福呢！",
+				darkMode: true
+			});
+		})
 
 		//自动更新第一张图片的文字
 		 var textnum=0;
@@ -415,7 +471,7 @@
 					textnum++;
 					$("#titleo").html("").append(data.title);
 					$("#texto").html("").append(data.textE);
-					console.log(data.textnum);
+					// console.log(data.textnum);
 				}else{
 					return;
 				}
@@ -424,24 +480,26 @@
 
 	},20000);
 
-		console.log(" _   _                           ____  _      _   _         _             \n" +
-				"| | | | __ _ _ __  _ __  _   _  | __ )(_)_ __| |_| |__   __| | __ _ _   _ \n" +
-				"| |_| |/ _` | '_ \\| '_ \\| | | | |  _ \\| | '__| __| '_ \\ / _` |/ _` | | | |\n" +
-				"|  _  | (_| | |_) | |_) | |_| | | |_) | | |  | |_| | | | (_| | (_| | |_| |\n" +
-				"|_| |_|\\__,_| .__/| .__/ \\__, | |____/|_|_|   \\__|_| |_|\\__,_|\\__,_|\\__, |\n" +
-				"            |_|   |_|    |___/                                      |___/ ")
-		console.log("__        __  _     _  \n" +
-				"\\ \\      / / | |   | |\n" +
-				" \\ \\ /\\ / /  | |_  | |\n" +
-				"  \\ V  V / |_| | |_| |\n" +
-				"   \\_/\\_/ \\___/ \\___/  ")
+		console.log(" __     __      _   _  _____             __   _______ _    _                       \n" +
+				" \\ \\   / //\\   | \\ | |/ ____|            \\ \\ / /_   _| |  | |                      \n" +
+				"  \\ \\_/ //  \\  |  \\| | |  __              \\ V /  | | | |  | |                      \n" +
+				"   \\   // /\\ \\ | . ` | | |_ |              > <   | | | |  | |                      \n" +
+				"    | |/ ____ \\| |\\  | |__| |             / . \\ _| |_| |__| |                      \n" +
+				"  _ |_/_/    \\_\\_|_\\_|\\_____|___     __  /_/_\\_\\_____|\\____/         _             \n" +
+				" | |  | |   /\\   |  __ \\|  __ \\ \\   / /  |  _ \\(_)    | | | |       | |            \n" +
+				" | |__| |  /  \\  | |__) | |__) \\ \\_/ /   | |_) |_ _ __| |_| |__   __| | __ _ _   _ \n" +
+				" |  __  | / /\\ \\ |  ___/|  ___/ \\   /    |  _ <| | '__| __| '_ \\ / _` |/ _` | | | |\n" +
+				" | |  | |/ ____ \\| |    | |      | |     | |_) | | |  | |_| | | | (_| | (_| | |_| |\n" +
+				" |_|  |_/_/    \\_\\_|    |_|      |_|     |____/|_|_|   \\__|_| |_|\\__,_|\\__,_|\\__, |\n" +
+				"                                                                              __/ |\n" +
+				"                                                                             |___/ ")
         //定义获取词语下标
         var a_idx = 0;
         jQuery(document).ready(function($) {
             //点击body时触发事件
             $("body").click(function(e) {
                 //需要显示的词语
-                var a = new Array("吴","金", "娟", "祝","你", "2019", "生","日", "快", "乐");
+                var a = new Array("杨","秀", "祝", "你","生","日","快", "乐", "--E");
                 //设置词语给span标签
                 var $i = $("<span/>").text(a[a_idx]);
                 //下标等于原来下标+1  余 词语总数

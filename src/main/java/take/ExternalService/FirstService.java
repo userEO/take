@@ -1,6 +1,8 @@
 package take.ExternalService;
 
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import take.Util.FastJsonUtils;
 import take.mapper.UserMapper;
@@ -36,6 +38,7 @@ public class FirstService {
 
     //注册接口
     @RequestMapping(value = "/EOS/registered",method = RequestMethod.POST)
+    @Transactional(propagation=Propagation.REQUIRED )
     public Object registered(@RequestBody JSONObject jsonObject){
         Map<String,Object> map = JSONObject.parseObject(jsonObject.toString());
         String login = map.get("login").toString();
