@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import take.nettyserver.NettyServerListener;
 
 import java.util.Arrays;
 
@@ -21,9 +22,15 @@ import java.util.Arrays;
 @MapperScan("take.mapper")
 
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        NettyServerListener nettyServerListener = new NettyServerListener();
+        nettyServerListener.start();
     }
 //    @Bean
 //    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
