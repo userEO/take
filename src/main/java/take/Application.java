@@ -4,13 +4,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.redis.core.RedisTemplate;
 import take.nettyserver.NettyServerListener;
-
-import java.util.Arrays;
 
 /**
  * 功能描述：启动类
@@ -20,7 +15,6 @@ import java.util.Arrays;
  */
 //@ServletComponentScan
 @MapperScan("take.mapper")
-
 @SpringBootApplication
 public class Application implements CommandLineRunner {
     public static void main(String[] args) {
@@ -32,6 +26,16 @@ public class Application implements CommandLineRunner {
         NettyServerListener nettyServerListener = new NettyServerListener();
         nettyServerListener.start();
     }
+
+    public Application(RedisTemplate redisTemplate) {
+        redisTemplate.opsForValue().set("spring-r-cluster-1", 123);
+        redisTemplate.opsForValue().set("spring-r-cluster-2", 456);
+        redisTemplate.opsForValue().set("spring-r-cluster-3", 789);
+        redisTemplate.opsForValue().set("spring-r-cluster-4", 101112);
+        redisTemplate.opsForValue().set("spring-r-cluster-5", 131415);
+        redisTemplate.opsForValue().set("spring-r-cluster-6", 161718);
+    }
+
 //    @Bean
 //    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 //        return args -> {

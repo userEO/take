@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import take.Util.ObjectCodec;
 
-
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
@@ -36,10 +35,12 @@ public class NettyServerListener {
     ServerBootstrap serverBootstrap = new ServerBootstrap();
     /**
      * BOSS  EventLoopGroup负责管理Channel的事件处理任务 结构类似线程池
+     * AbstractBootstrap中定义了主线程池group
      */
     EventLoopGroup boss = new NioEventLoopGroup();
     /**
      * Worker
+     * childGroup的引用是定义在ServerBootstrap
      */
     EventLoopGroup work = new NioEventLoopGroup();
     /**
@@ -52,8 +53,9 @@ public class NettyServerListener {
      */
     @Resource
     private NettyConfig nettyConfig;
+
     /**
-     * 关闭服务器方法
+     * 关闭服务器方法  @PreDestroy修饰的方法会在服务器卸载Servlet的时候运行，并且只会被服务器调用一次
      */
     @PreDestroy
     public void close() {
@@ -68,12 +70,25 @@ public class NettyServerListener {
      */
     public void start() {
         // 从配置文件中(application.yml)获取服务端监听端口号
+        // todo 这里配置文件读取失败，有时间修改下
 //        int port = nettyConfig.getPort();
         int port = 12131;
         serverBootstrap.group(boss, work)
-                // 服务器端 所以为Nio
+                // 服务器端 初始化工厂实例
                 .channel(NioServerSocketChannel.class)
+                /**
+                 * BACKLOG用于构造服务端套接字ServerSocket对象，标识当服务器请求处理线程全满时，
+                 * 用于临时存放已完成三次握手的请求的队列的最大长度。
+                 * 如果未设置或所设置的值小于1，Java将使用默认值50
+                 */
                 .option(ChannelOption.SO_BACKLOG, 100)
+                /**
+                 * 启用心跳机制  两个小时左右上层没有任何数据传输的情况下，这套机制才会被激活。
+                 *
+                 * 可见option可以多传几个
+                 */
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                // 对入站\出站事件进行日志记录，从而方便我们进行问题排查
                 .handler(new LoggingHandler(LogLevel.INFO));
         try {
             //设置事件处理
@@ -90,6 +105,7 @@ public class NettyServerListener {
                 }
             });
             LOGGER.info("netty服务器在[{}]端口启动监听", port);
+            // 操作返回接口 异步通知
             ChannelFuture f = serverBootstrap.bind(port).sync();
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {

@@ -1,0 +1,18 @@
+redis-cli -h 127.0.0.1 -p 6379 shutdown
+
+启动redis redis-server /etc/redis/cluster/7000/redis.conf
+
+redis 集群搭建  window注意事项
+1.Invalid argument during startup: Failed to open the .conf file: Files/Redis/redisCluster/redis.20001.conf CWD=C:\Program Files\Redis:打开文件失败
+
+1.C盘需要赋予权限
+2.启动端口conf文件的时候，需要redis-server +配置文件一起启动
+
+redis创建集群 
+redis-trib.rb create --replicas 0 127.0.0.1:6380 127.0.0.1:6381 127.0.0.1:6382 
+
+查看集群关系  cluster info
+
+查看端口号 netstat -ano
+
+连接集群的某一个服务：redis-cli.exe -c -p 20001（端口号）
