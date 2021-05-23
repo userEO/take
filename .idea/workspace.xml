@@ -7,24 +7,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/take/frame/TimerUtil.java" line="60" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7ca179e-dd37-423e-8b2c-d27edfd1e502" name="Default Changelist" comment="学习搭建netty服务器   搭建成功">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20001.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20002.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20003.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20004.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20005.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis.20006.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis集群.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/redis集群创建成功.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/一些常用命令.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="d7ca179e-dd37-423e-8b2c-d27edfd1e502" name="Default Changelist" comment="1.搭建redis集群2.为了方便启动，添加了redis批处理文件和vbs总启动文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redis集群搭建/配置文件/一些常用命令.txt" beforeDir="false" afterPath="$PROJECT_DIR$/redis集群搭建/配置文件/一些常用命令.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/take/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/take/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/take/nettyserver/NettyServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/take/nettyserver/NettyServerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,6 +259,8 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -291,6 +279,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA\take\src\main\resources\public\loginimg" />
+      <recent name="D:\IDEA\take\src\main\resources\bootstrapview\images" />
+      <recent name="D:\IDEA\take\src\main\resources\public\logincss" />
+      <recent name="D:\IDEA\take\src\main\resources\public\loginjs" />
+      <recent name="D:\IDEA\take\src\main\resources\public\xiamu" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IDEA\take\src\main\resources\templates" />
       <recent name="D:\IDEA\take\src\main\resources\static" />
@@ -299,13 +294,6 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="take.controller.Util" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IDEA\take\src\main\resources\public\loginimg" />
-      <recent name="D:\IDEA\take\src\main\resources\bootstrapview\images" />
-      <recent name="D:\IDEA\take\src\main\resources\public\logincss" />
-      <recent name="D:\IDEA\take\src\main\resources\public\loginjs" />
-      <recent name="D:\IDEA\take\src\main\resources\public\xiamu" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -515,7 +503,9 @@
       <workItem from="1621605270478" duration="436000" />
       <workItem from="1621605742927" duration="465000" />
       <workItem from="1621606476661" duration="917000" />
-      <workItem from="1621680553372" duration="709000" />
+      <workItem from="1621680553372" duration="1209000" />
+      <workItem from="1621684120365" duration="2647000" />
+      <workItem from="1621761419690" duration="641000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1570760299934</created>
@@ -594,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621524666366</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1.搭建redis集群2.为了方便启动，添加了redis批处理文件和vbs总启动文件">
+      <created>1621681833143</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621681833143</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -673,6 +670,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="EO 2019.10.11" />
@@ -682,7 +691,8 @@
     <MESSAGE value="RedisUtil待补充" />
     <MESSAGE value="redis配置文件" />
     <MESSAGE value="学习搭建netty服务器   搭建成功：netty服务器在[12131]端口启动监听" />
-    <option name="LAST_COMMIT_MESSAGE" value="学习搭建netty服务器   搭建成功：netty服务器在[12131]端口启动监听" />
+    <MESSAGE value="1.搭建redis集群2.为了方便启动，添加了redis批处理文件和vbs总启动文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.搭建redis集群2.为了方便启动，添加了redis批处理文件和vbs总启动文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

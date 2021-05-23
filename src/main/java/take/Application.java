@@ -31,7 +31,8 @@ public class Application implements CommandLineRunner {
         redisTemplate.opsForValue().set("spring-r-cluster-1", 123);
         redisTemplate.opsForValue().set("spring-r-cluster-2", 456);
         redisTemplate.opsForValue().set("spring-r-cluster-3", 789);
-        redisTemplate.opsForValue().set("spring-r-cluster-4", 101112);
+        redisTemplate.opsForValue().set("" +
+                "spring-r-cluster-4", 101112);
         redisTemplate.opsForValue().set("spring-r-cluster-5", 131415);
         redisTemplate.opsForValue().set("spring-r-cluster-6", 161718);
     }
