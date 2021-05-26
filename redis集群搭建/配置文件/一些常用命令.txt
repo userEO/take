@@ -66,6 +66,15 @@ cluster-require-full-coverage yes
 
 
 
+哨兵模式
+sentinel monitor [master-group-name] [ip] [port] [quorum]
+
+master-group-name：master名称（可以自定义）
+ip port : IP地址和端口号
+quorun：票数，Sentinel需要协商同意master是否可到达的数量。
+
+
+
 
 
 
