@@ -1,75 +1,49 @@
 package take.sqlsession;
 
-import java.sql.*;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
 
 /**
- * 功能描述：sql底层逻辑实现
+ * 功能描述：让我们一起来探讨一下mybatis的底层到底是怎么执行到一个sql
  * <p>
- * 最近面试问到了，当然也是不记得了，现在来学习下底层，到底是怎么查询数据的
- * 当然springboot的简单查询是很简单，加个注解就可以了，当然最好的方式还是使用xml的方式，这样可以使用resultmap的方式自己去自定义数据
- * <p>
- * 环境 ：本地的mysql
+ * ps:SqlExecute已经执行了一个简单的sql了，但是真正的开发，不可能使用这种方式来编写sql，而且sql的拓展性不高
+ * 那么我们就应该引入xml的mapper的方式来使用sql
  *
  * @author EO
- * @date 2021/5/26 19:35
+ * @date 2021/5/26 23:46
  */
 public class SqlFactory {
-    // 连接对象
-    private Connection connection;
-    // sql的执行基础
-    private Statement statement;
+    // 这里由于是本地测试,所以先暂时注释
+//    @Autowired
+//    private SqlExecute sqlExecute;
 
-    public void close() {
-        try {
-            statement.close();
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Statement getConnection() throws SQLException, ClassNotFoundException {
+    /**
+     * 以下内容来自于mybatis官网
+     */
+    public SqlSession sqlSession(Connection connection) throws IOException {
+        String resource = "mapper/mysql.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(inputStream);
         /**
-         *  Class.forName的作用是为了装载静态的类 等于装载了mysql的驱动，之后这个静态就不会再加载了
-         *  也可以点进去看一下，这个方法是static修饰的，所以你就知道了
+         * 创建 SqlSession 实例
+         *
+         * 这个地方我们之前创建了connection,所以不适用默认值了,另一个值得注意的点,你可以自己设置connection是否需要事务自动提交
+         * 事务隔离级别支持 JDBC 的五个隔离级别（NONE、READ_UNCOMMITTED、READ_COMMITTED、REPEATABLE_READ
+         * 和 SERIALIZABLE），并且与预期的行为一致。
          */
-        Class.forName(SqlConfig.driverclass);
-        connection = DriverManager.getConnection(SqlConfig.URL, SqlConfig.USERNAME, SqlConfig.PASSWORD);
-        // 传统的传递Statement Id 和查询参数给 SqlSession 对象，使用 SqlSession对象完成和数据库的交互
-        statement = connection.createStatement();
-        return statement;
+        SqlSession session = factory.openSession(ExecutorType.BATCH, connection);
+        // 这里有一个疑问  创建sqlfactory的过程中,我们已经对数据库的连接条件给予了
+        // 但是connection又再一次的给予了数据库的连接条件
+        return session;
     }
 
-    /**
-     * 获取sql执行的结果
-     *
-     * @return
-     */
-    public ResultSet getSqlExecuteResult(String sql) throws SQLException, ClassNotFoundException {
-        ResultSet resultSet = getConnection().executeQuery(sql);
-        return resultSet;
-    }
 
-    /**
-     * 根据结果集里的第几列来返回String对象
-     * 这个index对象就是表中字段的顺序第几列
-     *
-     * @param resultSet resultSet
-     * @param index     第几列
-     * @return return
-     */
-    public String getStringSqlResultColum(ResultSet resultSet, int index) throws SQLException {
-        return resultSet.getString(index);
-    }
-
-    /**
-     * int
-     *
-     * @param resultSet resultSet
-     * @param index     第几列
-     * @return return
-     */
-    public int getIntSqlResultColum(ResultSet resultSet, int index) throws SQLException {
-        return resultSet.getInt(index);
-    }
 }
