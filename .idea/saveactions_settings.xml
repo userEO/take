@@ -8,6 +8,9 @@
         <option value="reformat" />
         <option value="missingOverrideAnnotation" />
         <option value="useBlocks" />
+        <option value="unnecessaryThis" />
+        <option value="suppressAnnotation" />
+        <option value="unnecessarySemicolon" />
       </set>
     </option>
     <option name="configurationPath" value="" />

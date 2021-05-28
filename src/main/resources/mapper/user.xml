@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="take.mapper.UserMapper">
+
+    <!--    <resultMap id="BaseResultMap" type="com.louis.mybatis.model.Employee">-->
+    <!--        <id column="EMPLOYEE_ID" property="employeeId" jdbcType="DECIMAL"/>-->
+    <!--        <result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR"/>-->
+    <!--        <result column="LAST_NAME" property="lastName" jdbcType="VARCHAR"/>-->
+    <!--        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>-->
+    <!--        <result column="SALARY" property="salary" jdbcType="DECIMAL"/>-->
+    <!--    </resultMap>-->
+
+    <select id="getUsers" resultType="take.bean.User">
+        select *
+        from user
+    </select>
+</mapper>

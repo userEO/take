@@ -1,11 +1,10 @@
 package take.service.serviceImpl;
 
 import org.springframework.stereotype.Service;
-import take.mapper.UserMapper;
+import take.mapper.UserBootMapper;
 import take.service.UserService;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,19 +16,20 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
-    private UserMapper userMapper;
+    private UserBootMapper userMapper;
+
     @Override
-    public Map<String,Object> user(String login, String pwd) {
-        Map<String,Object> map = userMapper.findOne(login,pwd);
+    public Map<String, Object> user(String login, String pwd) {
+        Map<String, Object> map = userMapper.findOne(login, pwd);
         System.out.println(map);
         return map;
     }
 
     @Override
     public Map<String, Object> userMap(Map<String, Object> map) {
-        System.out.println("传输的map"+map);
-        Map<String,Object> map1 = userMapper.findOneM(map);
-        System.out.println("数据库map"+map1);
+        System.out.println("传输的map" + map);
+        Map<String, Object> map1 = userMapper.findOneM(map);
+        System.out.println("数据库map" + map1);
         return map1;
     }
 }

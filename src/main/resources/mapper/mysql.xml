@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="application.properties"/>
+    <!--        &lt;!&ndash;是否开启二级缓存&ndash;&gt;-->
+    <!--    <settings>-->
+    <!--        <setting name="cacheEnabled" value="true"/>-->
+    <!--    </settings>-->
+    <environments default="local">
+        <environment id="local">
+            <transactionManager type="JDBC"/>
+            <!-- POOLED：使用Mybatis自带的数据库连接池来管理数据库连接-->
+            <!-- UNPOOLED：不使用任何数据库连接池来管理数据库连接-->
+            <!-- JNDI：jndi形式使用数据库连接、主要用于项目正常使用的时候-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${spring.datasource.driver-class-name}"/>
+                <property name="url" value="${spring.datasource.url}"/>
+                <property name="username" value="${spring.datasource.username}"/>
+                <property name="password" value="${spring.datasource.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/user.xml"/>
+    </mappers>
+</configuration>
