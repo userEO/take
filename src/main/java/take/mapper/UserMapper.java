@@ -1,5 +1,6 @@
 package take.mapper;
 
+import take.bean.Nuser;
 import take.bean.User;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface UserMapper {
      * @return return
      */
     List<User> getUsers();
+
+    void addUser(User user);
+
+    List<Nuser> getNusers();
 }

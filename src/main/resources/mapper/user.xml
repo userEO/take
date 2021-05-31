@@ -2,15 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="take.mapper.UserMapper">
 
-    <!--    <resultMap id="BaseResultMap" type="com.louis.mybatis.model.Employee">-->
-    <!--        <id column="EMPLOYEE_ID" property="employeeId" jdbcType="DECIMAL"/>-->
-    <!--        <result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR"/>-->
-    <!--        <result column="LAST_NAME" property="lastName" jdbcType="VARCHAR"/>-->
-    <!--        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>-->
-    <!--        <result column="SALARY" property="salary" jdbcType="DECIMAL"/>-->
-    <!--    </resultMap>-->
+    <cache></cache>
+    <select id="getUsers" resultType="take.bean.User" useCache="true">
+        select *
+        from user
+    </select>
 
-    <select id="getUsers" resultType="take.bean.User">
+    <insert id="addUser" parameterType="take.bean.User">
+        insert into user(userName, passWord, realName, flag)
+        values (#{userName}, #{passWord}, #{realName}, #{flag})
+    </insert>
+
+    <select id="getNusers" resultType="take.bean.Nuser">
         select *
         from user
     </select>

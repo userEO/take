@@ -4,11 +4,12 @@
 <configuration>
     <properties resource="application.properties"/>
     <!--        &lt;!&ndash;是否开启二级缓存&ndash;&gt;-->
-    <!--    <settings>-->
-    <!--        <setting name="cacheEnabled" value="true"/>-->
-    <!--    </settings>-->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
     <environments default="local">
         <environment id="local">
+            <!--JDBC管理事务-->
             <transactionManager type="JDBC"/>
             <!-- POOLED：使用Mybatis自带的数据库连接池来管理数据库连接-->
             <!-- UNPOOLED：不使用任何数据库连接池来管理数据库连接-->
