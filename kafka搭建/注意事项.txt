@@ -1,0 +1,12 @@
+ZooKeeper比较简单，去官网下载，然后1.修改conf/的zoo_simple。cfg为zoo.cfg配置文件 2。添加系统环境变量path   到/bin即可  3.修改zoo.cfg的datadir 具体目录即可
+
+kafka启动：cmd进入卡夫卡目录 .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+1.ZooKeeper audit is disabled?
+Apache ZooKeeper支持3.6.0版以上的审核日志。默认情况下，审核日志处于禁用状态。要启用审核日志，
+请在conf / zoo.cfg中配置audit.enable = true。审计日志并非记录在所有的ZooKeeper服务器上，而是仅记录在连接了客户端的服务器上
+
+2.zookper和kafka启动报错？
+log.dirs=E:/tmp/kafka/data
+这种的文件夹需要反斜杠，不要输错
+
