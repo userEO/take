@@ -1,10 +1,8 @@
 package take;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.redis.core.RedisTemplate;
 import take.nettyserver.NettyServerListener;
 
 /**
@@ -14,7 +12,7 @@ import take.nettyserver.NettyServerListener;
  * @date 2019/8/30 15:17
  */
 //@ServletComponentScan
-@MapperScan("take.mapper")
+//@MapperScan("take.mapper")
 @SpringBootApplication
 public class Application implements CommandLineRunner {
     public static void main(String[] args) {
@@ -27,15 +25,18 @@ public class Application implements CommandLineRunner {
         nettyServerListener.start();
     }
 
-    public Application(RedisTemplate redisTemplate) {
-        redisTemplate.opsForValue().set("spring-r-cluster-1", 123);
-        redisTemplate.opsForValue().set("spring-r-cluster-2", 456);
-        redisTemplate.opsForValue().set("spring-r-cluster-3", 789);
-        redisTemplate.opsForValue().set("" +
-                "spring-r-cluster-4", 101112);
-        redisTemplate.opsForValue().set("spring-r-cluster-5", 131415);
-        redisTemplate.opsForValue().set("spring-r-cluster-6", 161718);
-    }
+    /**
+     * 用来测试初始化redis
+     */
+//    public Application(RedisTemplate redisTemplate) {
+//        redisTemplate.opsForValue().set("spring-r-cluster-1", 123);
+//        redisTemplate.opsForValue().set("spring-r-cluster-2", 456);
+//        redisTemplate.opsForValue().set("spring-r-cluster-3", 789);
+//        redisTemplate.opsForValue().set("" +
+//                "spring-r-cluster-4", 101112);
+//        redisTemplate.opsForValue().set("spring-r-cluster-5", 131415);
+//        redisTemplate.opsForValue().set("spring-r-cluster-6", 161718);
+//    }
 
 //    @Bean
 //    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {

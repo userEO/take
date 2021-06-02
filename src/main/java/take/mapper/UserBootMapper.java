@@ -1,6 +1,7 @@
 package take.mapper;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @author EO
  * @date 2019/9/4 9:05
  */
+@Mapper
 public interface UserBootMapper {
 
     //不要用$去获取值，会有外界的sql注入，使用#符号

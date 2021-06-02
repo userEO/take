@@ -1,6 +1,15 @@
 ZooKeeper比较简单，去官网下载，然后1.修改conf/的zoo_simple。cfg为zoo.cfg配置文件 2。添加系统环境变量path   到/bin即可  3.修改zoo.cfg的datadir 具体目录即可
 
 kafka启动：cmd进入卡夫卡目录 .\bin\windows\kafka-server-start.bat .\config\server.properties
+创建主题：.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+查看主题输入 ：.\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+创建生产者：.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
+创建消费者：.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+
+
+
 
 1.ZooKeeper audit is disabled?
 Apache ZooKeeper支持3.6.0版以上的审核日志。默认情况下，审核日志处于禁用状态。要启用审核日志，
